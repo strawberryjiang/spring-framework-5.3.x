@@ -17,18 +17,14 @@
 package org.springframework.context.support;
 
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.core.metrics.jfr.FlightRecorderApplicationStartup;
 import org.springframework.util.ObjectUtils;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
+import static org.assertj.core.api.Assertions.*;
 
 /**
  * @author Juergen Hoeller
@@ -213,14 +209,14 @@ class GenericApplicationContextTests {
 		context.close();
 	}
 
-	@Test
-	void configureApplicationStartupOnBeanFactory() {
-		FlightRecorderApplicationStartup applicationStartup = new FlightRecorderApplicationStartup();
-		GenericApplicationContext context = new GenericApplicationContext();
-		context.setApplicationStartup(applicationStartup);
-		assertThat(context.getBeanFactory().getApplicationStartup()).isEqualTo(applicationStartup);
-		context.close();
-	}
+//	@Test
+//	void configureApplicationStartupOnBeanFactory() {
+//		FlightRecorderApplicationStartup applicationStartup = new FlightRecorderApplicationStartup();
+//		GenericApplicationContext context = new GenericApplicationContext();
+//		context.setApplicationStartup(applicationStartup);
+//		assertThat(context.getBeanFactory().getApplicationStartup()).isEqualTo(applicationStartup);
+//		context.close();
+//	}
 
 
 	static class BeanA {

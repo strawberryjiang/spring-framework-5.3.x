@@ -1,0 +1,12 @@
+一、Import:
+ 使用方式，在配置类上直接加上@Import注入组件，需要注意的是，被注入的bean需要有无参的构造方法
+ id默认是组件的全类名
+
+二、ImportSelector
+
+三、ImportBeanDefinitionRegistrar
+ImportBeanDefinitionRegistrar本质上是一个接口。在ImportBeanDefinitionRegistrar接口中，有一个registerBeanDefinitions()方法，
+通过该方法，我们可以向Spring容器中注册bean实例。
+Spring官方在动态注册bean时，大部分套路其实是使用ImportBeanDefinitionRegistrar接口。
+所有实现了该接口的类都会被ConfigurationClassPostProcessor处理，ConfigurationClassPostProcessor实现了BeanFactoryPostProcessor接口，
+所以ImportBeanDefinitionRegistrar中动态注册的bean是优先于依赖其的bean初始化的，也能被aop、validator等机制处理。

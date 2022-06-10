@@ -16,16 +16,11 @@
 
 package org.springframework.context.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Repeatable;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.type.filter.TypeFilter;
+
+import java.lang.annotation.*;
 
 /**
  * Configures component scanning directives for use with @{@link Configuration} classes.
@@ -40,6 +35,7 @@ import org.springframework.core.type.filter.TypeFilter;
  * {@code annotation-config} attribute; however, this annotation does not. This is because
  * in almost all cases when using {@code @ComponentScan}, default annotation config
  * processing (e.g. processing {@code @Autowired} and friends) is assumed. Furthermore,
+ * 使用了AnnotationConfigApplicationContext，会默认注册 注解配置处理器 来解析各种注解
  * when using {@link AnnotationConfigApplicationContext}, annotation config processors are
  * always registered, meaning that any attempt to disable them at the
  * {@code @ComponentScan} level would be ignored.
