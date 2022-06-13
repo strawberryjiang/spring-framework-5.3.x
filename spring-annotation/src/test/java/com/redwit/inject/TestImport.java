@@ -37,7 +37,7 @@ public class TestImport {
 
 
 	@Configuration
-	@Import({Color.class, BasicImportSelector.class,BasicImportBeanDefinitionRegistrar.class})
+	@Import({Color.class, BasicImportSelector.class, BasicImportBeanDefinitionRegistrar.class})
 	static class BasicImportClass {
 
 	}

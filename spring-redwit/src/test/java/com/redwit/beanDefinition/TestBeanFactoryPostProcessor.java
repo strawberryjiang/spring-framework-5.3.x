@@ -22,7 +22,6 @@ public class TestBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 		//转换为子类，因为父类没有添加beanDefinition对象的api
 		DefaultListableBeanFactory defaultbf =
 				(DefaultListableBeanFactory) beanFactory;
-
 		//new一个Y的beanDefinition对象，方便测试动态添加
 		GenericBeanDefinition y= new GenericBeanDefinition();
 		y.setBeanClass(Y.class);

@@ -1,0 +1,24 @@
+初始化过程中各方法的执行顺序如下：
+调用构造器 Bean.constructor，进行实例化;
+调用 Setter 方法，设置属性值;
+调用 BeanNameAware.setBeanName，设置Bean的ID或者Name;
+调用 BeanFactoryAware.setBeanFactory，设置BeanFactory;
+调用 ApplicationContextAware.setApplicationContext，置ApplicationContext；
+调用BeanPostProcessor的预先初始化方法，如下：
+BeanPostProcessor1.postProcessBeforeInitialization
+BeanPostProcessor2.postProcessBeforeInitialization
+BeanPostProcessor3.postProcessBeforeInitialization
+调用由 @PostConstruct 注解的方法；
+调用 InitializingBean.afterPropertiesSet；
+调用 Bean.init-method 初始化方法；
+
+
+
+调用BeanPostProcessor的后初始化方法，如下：
+BeanPostProcessor1.postProcessAfterInitialization
+BeanPostProcessor2.postProcessAfterInitialization
+BeanPostProcessor3.postProcessAfterInitialization
+容器关闭时，Bean销毁过程中各方法的执行顺序如下：
+调用由 @PreDestroy 注解的方法
+调用DisposableBean的destroy();
+调用定制的destroy-method方法;

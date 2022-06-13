@@ -27,10 +27,12 @@ import javax.annotation.Resource;
  * @author: yangjiang
  * @create: 2022-05-23 11:23
  **/
+@Slf4j
 public class TestBeanFactory {
 
 	@Test
 	public  void testBeanFactoryImpl() {
+		log.info("dada");
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(Config.class).setScope("singleton").getBeanDefinition();
 		beanFactory.registerBeanDefinition("config", beanDefinition);
